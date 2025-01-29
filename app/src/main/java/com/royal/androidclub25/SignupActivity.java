@@ -1,6 +1,11 @@
 package com.royal.androidclub25;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +14,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class SignupActivity extends AppCompatActivity {
+
+    EditText edtFirstname;
+    EditText edtEmail;
+    EditText edtPassword;
+    Button btnSubmit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +30,55 @@ public class SignupActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        //gui - java - bind
+        edtFirstname = findViewById(R.id.edtSignupFirstName);
+        edtEmail = findViewById(R.id.edtSignupEmail);
+        edtPassword = findViewById(R.id.edtSignupPassword);
+        btnSubmit = findViewById(R.id.btnSignupSubmit);
+
+
+        //click event --> logic
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String firstName = edtFirstname.getText().toString();
+                String email = edtEmail.getText().toString();
+                String password = edtPassword.getText().toString();
+
+                boolean isError = false;
+                //validation
+                if(firstName.isEmpty()){
+                    edtFirstname.setError("Firstname required");
+                    isError = true;
+                }
+
+                if(email.isEmpty()){
+                    edtEmail.setError("Email required");
+                    isError = true;
+                }
+
+                if(password.isEmpty()){
+                    edtPassword.setError("Password required");
+                    isError=true;
+                }
+
+
+                //final
+                if(isError){
+                    //data miss
+                    Toast.makeText(getApplicationContext(),"Please Correct Errors",Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getApplicationContext(),"Signup success",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                    intent.putExtra("email",email);
+                    intent.putExtra("password",password);
+                    startActivity(intent);
+                }
+
+            }
+        });
+
+
     }
 }

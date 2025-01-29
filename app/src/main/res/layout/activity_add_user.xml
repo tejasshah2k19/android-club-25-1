@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddUserActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvAddUserTitle"
+        android:text="@string/add_user"
+        android:textSize="20pt"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:fontFamily="cursive"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtAddUserFirstname"
+        android:layout_below="@+id/tvAddUserTitle"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="20dp"
+        android:hint="Enter Firstname"
+        android:drawableStart="@drawable/user_outline_24"
+        android:drawablePadding="5dp"
+
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtAddUserEmail"
+        android:layout_below="@+id/edtAddUserFirstname"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:hint="Enter Email"
+        android:drawableStart="@drawable/email_24"
+        android:drawablePadding="5dp"
+        />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtAddUserPassword"
+        android:layout_below="@+id/edtAddUserEmail"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:inputType="textPassword"
+        android:hint="Enter Password"
+        android:drawableStart="@drawable/password_24"
+        android:drawablePadding="5dp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAddUserSubmit"
+        android:text="@string/add_user"
+        android:layout_below="@id/edtAddUserPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        />
+</RelativeLayout>

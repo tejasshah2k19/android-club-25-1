@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InventoryActivity">
+
+
+<ImageView
+    android:layout_width="200dp"
+    android:layout_height="200dp"
+    android:id="@+id/imgInventoryLogo"
+    android:src="@drawable/logo2"
+    android:layout_centerHorizontal="true"
+    />
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtInventoryName"
+        android:layout_below="@+id/imgInventoryLogo"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:hint="@string/enter_product_name"
+        android:textStyle="bold"
+        android:fontFamily="serif-monospace"
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtInventoryQty"
+        android:layout_below="@+id/edtInventoryName"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:hint="@string/enter_product_qty"
+        android:textStyle="bold"
+        android:fontFamily="serif-monospace"
+        android:inputType="number"
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtInventoryPrice"
+        android:layout_below="@+id/edtInventoryQty"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:hint="@string/enter_grand_total"
+        android:textStyle="bold"
+        android:fontFamily="serif-monospace"
+        android:inputType="number"
+
+
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnInventorySubmit"
+        android:text="Submit"
+        android:layout_below="@id/edtInventoryPrice"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="serif-monospace"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvInventoryAns"
+        android:layout_below="@+id/btnInventorySubmit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="20pt"
+
+        />
+
+</RelativeLayout>
