@@ -52,12 +52,45 @@
         android:layout_marginEnd="50dp"
         />
 
+
+      <RadioGroup
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/rgSignupGender"
+            android:layout_below="@id/edtSignupPassword"
+          android:layout_marginStart="40dp"
+          android:orientation="horizontal"
+          >
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rbtnSignupMale"
+                android:text="@string/male"
+                />
+          <RadioButton
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/rbtnSignupFeMale"
+              android:text="@string/female"
+              />
+
+      </RadioGroup>
+
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerSignupCity"
+        android:layout_below="@id/rgSignupGender"
+        android:layout_marginStart="40dp"
+        />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnSignupSubmit"
-        android:text="Signup"
-        android:layout_below="@id/edtSignupPassword"
+        android:text="@string/signup"
+        android:layout_below="@id/spinnerSignupCity"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         />

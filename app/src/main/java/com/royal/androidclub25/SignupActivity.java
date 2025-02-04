@@ -2,9 +2,14 @@ package com.royal.androidclub25;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -19,6 +24,10 @@ public class SignupActivity extends AppCompatActivity {
     EditText edtEmail;
     EditText edtPassword;
     Button btnSubmit;
+
+    RadioGroup rgGender;
+    RadioButton rbGender;
+    Spinner citySpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +45,13 @@ public class SignupActivity extends AppCompatActivity {
         edtEmail = findViewById(R.id.edtSignupEmail);
         edtPassword = findViewById(R.id.edtSignupPassword);
         btnSubmit = findViewById(R.id.btnSignupSubmit);
+        rgGender = findViewById(R.id.rgSignupGender);
+        citySpinner = findViewById(R.id.spinnerSignupCity);
 
+        String items[] = {"Select City","Ahmedabad","Surat","Himmatnagar","Gnar","Thasa"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, items);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        citySpinner.setAdapter(adapter);
 
         //click event --> logic
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +78,9 @@ public class SignupActivity extends AppCompatActivity {
                     isError=true;
                 }
 
+                if(!rgGender.isSelected()){
+                    Toast.makeText(getApplicationContext(),"Please Select Gender",Toast.LENGTH_LONG).show();
+                }
 
                 //final
                 if(isError){
@@ -73,6 +91,12 @@ public class SignupActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
                     intent.putExtra("email",email);
                     intent.putExtra("password",password);
+
+
+                    rbGender = findViewById(rgGender.getCheckedRadioButtonId());
+                    Log.i("signup",rbGender.getText().toString());
+                    citySpinner.getSelectedItem();
+
                     startActivity(intent);
                 }
 
