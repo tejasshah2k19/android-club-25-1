@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactActivity">
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="631dp"
+        android:id="@+id/frameContactMaster"
+        >
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/frameContactMaster"
+
+        >
+    <ImageButton
+        android:layout_width="137dp"
+        android:layout_height="match_parent"
+        android:id="@+id/btnContactAdd"
+        android:src="@drawable/add_call_24"
+        android:scaleType="centerInside"
+        />
+        <Button
+            android:layout_width="137dp"
+            android:layout_height="match_parent"
+            android:id="@+id/btnContactList"
+            android:backgroundTint="@color/lg"
+
+
+
+            />
+        <Button
+            android:layout_width="137dp"
+            android:layout_height="match_parent"
+            android:id="@+id/btnContactSearch"
+            android:backgroundTint="@color/lg"
+            />
+    </LinearLayout>
+
+</RelativeLayout>
