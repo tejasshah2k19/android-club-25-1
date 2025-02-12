@@ -8,17 +8,16 @@
     tools:context=".ContactActivity">
 
 
-    <ImageView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="651dp"
-        android:id="@+id/imgViewHolder"
-        android:src="@drawable/user_24"
+        android:id="@+id/frameMaster"
         />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal"
-        android:layout_below="@id/imgViewHolder">
+        android:layout_below="@id/frameMaster">
 
         <ImageButton
         android:layout_width="137dp"

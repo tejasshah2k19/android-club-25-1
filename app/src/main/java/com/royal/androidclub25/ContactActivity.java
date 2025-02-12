@@ -3,6 +3,7 @@ package com.royal.androidclub25;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -12,8 +13,12 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.royal.androidclub25.fragment.CallFragment;
+import com.royal.androidclub25.fragment.ListFragment;
+import com.royal.androidclub25.fragment.SearchFragment;
 
 public class ContactActivity extends AppCompatActivity {
 
@@ -22,7 +27,7 @@ public class ContactActivity extends AppCompatActivity {
     ImageButton btnSearch;
     ImageButton btnUser;
 
-    ImageView imgMaster;
+    FrameLayout frameMaster;
 
     Drawable userFill;
     Drawable userEmpty;
@@ -46,7 +51,7 @@ public class ContactActivity extends AppCompatActivity {
         btnCall = findViewById(R.id.imgBtnContactAdd);
         btnSearch = findViewById(R.id.imgBtnContactSearch);
         btnUser = findViewById(R.id.imgBtnContactUser);
-        imgMaster = findViewById(R.id.imgViewHolder);
+        frameMaster = findViewById(R.id.frameMaster);
 
         userFill = ContextCompat.getDrawable(getApplicationContext(),R.drawable.user_24);//fill
         userEmpty = ContextCompat.getDrawable(getApplicationContext(),R.drawable.user_outline_24);
@@ -57,7 +62,14 @@ public class ContactActivity extends AppCompatActivity {
                     btnUser.setImageDrawable(userFill);
                     btnCall.setImageDrawable(callEmpty);
                     btnSearch.setImageDrawable(searchEmpty);
-                    imgMaster.setImageDrawable(userFill);
+
+                    //load list fragement
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frameMaster,new ListFragment());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
              }
         });
 
@@ -68,17 +80,23 @@ public class ContactActivity extends AppCompatActivity {
                 btnCall.setImageDrawable(callFill);
                 btnSearch.setImageDrawable(searchEmpty);
 //                imgMaster.setImageDrawable(callFill);
-                CallFragment callFg = new CallFragment();
-                //FG
-                //FT
-                //t.replace(framelayoutid,callFg);
-                //t.commit();
+                 FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frameMaster,new CallFragment());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
             }
         });
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frameMaster,new SearchFragment());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
 
             }
         });
