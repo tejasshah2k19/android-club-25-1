@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,8 +90,13 @@ public class CallFragment extends Fragment {
                 public void onClick(View v) {
                     String firstName = edtFirstName.getText().toString();
                     String contactNum = edtContactNum.getText().toString();
-
+                    Log.i("callFragment",firstName);
+                    Log.i("callFragment",contactNum);
                 }
+                //location to location -> intent
+                //sharedPreferences {private,public} -- scope : mobile
+                //api
+
             });
     }
 }
